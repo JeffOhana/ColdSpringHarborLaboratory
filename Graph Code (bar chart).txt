@@ -1,0 +1,23 @@
+Python Code to generate the Bar chart ( PhastCons Conservation Score vs Gene #) 
+———————————————————————————--
+filename=“hm.txt” 
+#change the name for each file ( chromosome or entire Human GENOME)
+
+counts=np.genfromtxt(filename)
+num_pos=len(counts)
+
+plt.figure(figsize=(20,10))
+
+plt.bar(np.arange(num_pos),counts,color='blue') 
+
+plt.xlabel('Genes',fontsize=15)
+
+plt.ylabel('PhastCons Conservation Score',fontsize=15)
+
+plt.xlim(0,num_pos)
+
+plt.ylim(0,1)
+
+plt.title('PhastCons Conservation Score of the Human Genes’,fontsize=20) 
+#change the title according to the file analyzed ( chromosome or entire Human GENOME)
+

@@ -1,0 +1,25 @@
+Python Code to calculate the average PhastCons score for each gene 
+import collections
+——————————————————————————————————————————————
+filename = 'genes.txt'
+lines = [line.rstrip('\n') for line in open(filename)]
+results = []
+num_genes = 0
+counter = 0
+tempSum = 0
+for line in lines:
+	if 'fixedStep' in line:
+		results.append((num_genes, tempSum/counter))
+		tempSum = 0
+		counter = 0
+		num_genes += 1
+	else:
+		tempSum += float(line)
+		counter += 1
+
+results.append((num_genes, tempSum/counter))
+tempSum = 0
+counter = 0
+print "Results\n"
+for key, value in results:
+	print str(key) + ":::::" + str(value)
